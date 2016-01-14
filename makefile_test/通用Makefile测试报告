@@ -1,0 +1,14 @@
+从lab01中得到8份llvm编译报multiple definition of '***'错误的代码，用通用Makefile编译有8份报multiple definition of '***'错误；
+从lab02中得到10份llvm编译报multiple definition of '***'错误的代码，用通用Makefile编译有9份报multiple definition of '***'错误，1份报'***' undeclered错误；
+从lab03中得到9份llvm编译报multiple definition of '***'错误的代码，用通用Makefile编译有7份报multiple definition of '***'错误，1份报'***' undeclered错误，1份报'for' loop initial declarations error错误；
+从lab04中得到8份llvm编译报multiple definition of '***'错误的代码，用通用Makefile编译有7份报multiple definition of '***'错误，1份报'***' undeclered错误；
+
+从lab01中抽取6份llvm编译通过的代码，用Makefile编译有6份通过；
+从lab02中抽取6份llvm编译通过的代码，用Makefile编译有6份通过；
+从lab03中抽取6份llvm编译通过的代码，用Makefile编译有6份通过；
+从lab04中抽取6份llvm编译通过的代码，用Makefile编译有5份通过，1份报'for' loop initial declarations error错误；
+
+其中报'***' undeclered错误原因应该也是有include源文件的情况，报'for' loop initial declarations error错误是因为gcc基于c89标准，不允许在for循环内定义变量，所以我在通用Makefile gcc编译选项中添加了-std=c99.
+
+初步测试了下通用Makefile生成的parser的功能，有的输出结果格式和预期不太一致，不过这应该是代码内部输出格式的问题和编译没有关系。
+测试表明该通用Makefile文件是可行的。
